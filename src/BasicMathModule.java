@@ -1,19 +1,34 @@
 
-public class BasicMathModule implements OperationModule {
+public class BasicMathModule implements OperationModule{
 
 	@Override
 	public boolean supports(String operation) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return operation.equals("+") || operation.equals("-") || 
+				operation.equals("/") || operation.equals("*");
 	}
 
 	@Override
 	public double compute(String operation, double[] operands) {
-		// TODO Auto-generated method stub
-		return 0;
+		double x = operands[0];
+		double y = operands[1];
+		
+		switch(operation) {
+			case "+":
+				return x + y;
+			case "-":
+				return x - y;
+			case "*":
+				return x * y;
+			case "/":
+				if (y == 0) {
+					throw new ArithmeticException("Cannot divide by zero");
+				}
+				return x / y;
+			default:
+				throw new UnsupportedOperationException("Unsupported operation: " + operation);
+		}
+		
+		
 	}
-
-
-	
-
 }
