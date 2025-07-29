@@ -2,8 +2,7 @@
 public class Calculator {
 
 	public Calculator() {
-		// TODO Auto-generated constructor stub
-			
+		// TODO Auto-generated constructor stub	
 	}
 	
 	
@@ -18,6 +17,7 @@ public class Calculator {
 		return x + y;
 	} 
 	
+	
 	/**
 	 * Subtracts two numbers.
 	 * 
@@ -28,6 +28,7 @@ public class Calculator {
 	public static double subtract(double x, double y) {
 		return x - y;
 	}
+	
 	
 	/**
 	 * 
@@ -51,8 +52,9 @@ public class Calculator {
 		if (y == 0) {
 			throw new ArithmeticException("Cannot divide by zero");
 		}
-		
-		return x / y;
+
+		return x / y;	
 	}
+	
 	
 }
