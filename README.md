@@ -1,7 +1,8 @@
 
-<h3 align="center">Web Calculator</h3>
-<p align="center"> A simple full-stack web calculator that supports both basic (add, subtract, multiply, divide) and scientific operations (sin, cos, sqrt)
-built using **Spring Boot** and **vanilla JavaScript**.</p>
+## 🧮 Web Calculator
+
+A simple full-stack web calculator that supports both basic (add, subtract, multiply, divide) and scientific (sin, cos, sqrt) operations.
+Built using Spring Boot and vanilla JavaScript.
 
 ## 🚀 Features
 
@@ -26,4 +27,16 @@ built using **Spring Boot** and **vanilla JavaScript**.</p>
 
 ```bash
 git clone https://github.com/jbraun28/Calculator.git
-cd calculator
+cd Calculator
+```
+
+### 2. Run the backend
+Make sure Maven is installed. Then:
+
+```bash
+mvn spring-boot:run
+```
+App runs on: http://localhost:8080
+
+### 3. Open the calculator
+Open http://localhost:8080/index.html in your browser.
