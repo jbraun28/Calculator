@@ -1,6 +1,6 @@
 
 <h3 align="center">Web Calculator</h3>
-<p align="center"> A simple full-stack web calculator that supports both basic (`+`, `-`, `*`, `/`) and scientific operations (`sin`, `cos`, `sqrt`)
+<p align="center"> A simple full-stack web calculator that supports both basic (add, subtract, multiply, divide) and scientific operations (sin, cos, sqrt)
 built using **Spring Boot** and **vanilla JavaScript**.</p>
 
 ## 🚀 Features
