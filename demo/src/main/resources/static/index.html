@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+         <title>Web Calculator</title>
+    </head>
+    <body>
+        <h2>Web Calculator</h2>
+
+        <!-- define user input boxes -->
+        <input id="operand1" type="number" placeholder="Operand 1"/>
+        <input id="operand2" type="number" placeholder="Operand 2"/>
+
+        <select id="operation">
+            <option value="+">Add (+)</option>
+            <option value="-">Subtract (-)</option>
+            <option value="*">Multiply (*)</option>
+            <option value="/">Divide (/)</option>
+            <option value="sin">Sine (sin)</option>
+            <option value="cos">Cosine (cos)</option>
+            <option value="sqrt">Square Root (sqrt)</option>
+        </select>
+
+        <button onClick="calculate()">Calculate</button>
+        <p id="result"></p>
+
+        <script>
+            async function calculate() {
+                const op1 = document.getElementById("operand1").value;
+                const op2 = document.getElementById("operand2").value;
+
+                const operation = document.getElementById("operation").value;
+            
+                //if the second operand exists, build an array of both operands; otherwise, build one with just the first
+                const operands = op2 ? [parseFloat(op1), parseFloat(op2)] : [parseFloat(op1)];
+                
+                try {
+                    //use fetch API to send a post request to Spring Boot API and get HTTP response (envelope)
+                    const response = await fetch("http://localhost:8080/api/calculate", {
+                        method: "POST",
+                        headers: {
+                        "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ operation, operands })
+                    });
+
+                    //parse body of response (message) as JSON 
+                    const data = await response.json();
+
+                    //check if API response includes a result value
+                    if (data.result !== undefined) {
+                        document.getElementById("result").textContent = `Result: ${data.result}`;
+                    } else {
+                        document.getElementById("result").textContent = `Error: ${data.error}`;
+                    }
+                } catch (err) {
+                    document.getElementById("result").textContent = "Error calling API.";
+                }
+
+            }
+
+        </script>
+
+
+        
+
+        
+    
+    </body>
+</html>
