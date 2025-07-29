@@ -27,12 +27,12 @@ public class CalculatorController {
 			String operation = (String) request.get("operation");
 			
 			//get the list of operands from the JSON object
-			List<Double> operandList = (List<Double>) request.get("operands");
+			List<Number> operandList = (List<Number>) request.get("operands");
 			
 			//convert the operand list to a double array, to match input needed for calculator methods
 			double[] operands = new double[operandList.size()];
 			for (int i = 0; i < operandList.size(); i++) {
-				operands[i] = operandList.get(i);
+				operands[i] = operandList.get(i).doubleValue();
 			}
 			
 			//loop through available modules to find one that supports the operation
